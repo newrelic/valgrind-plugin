@@ -2,9 +2,9 @@
          xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:u="/util">
 
     <f:entry title="Report Pattern:" 
-        description="Pattern to find your valgrind xml reports.">
+        description="Pattern to find your helgrind xml reports.">
         
-        <f:textbox name="valgrind.pattern" value="${instance.valgrindPublisherConfig.pattern}"/>
+        <f:textbox name="helgrind.pattern" value="${instance.valgrindPublisherConfig.pattern}"/>
     </f:entry>
     
 	  <f:entry title="Show processes without errors" field="showProcessesWithoutErrors"
@@ -32,10 +32,10 @@
 	        <tr>
 	          <td style="vertical-align:middle">Invalid Reads/Writes</td>
 	          <td>
-	            <f:textbox name="valgrind.failThresholdInvalidReadWrite" value="${instance.valgrindPublisherConfig.failThresholdInvalidReadWrite}" />
+	            <f:textbox name="helgrind.failThresholdInvalidReadWrite" value="${instance.valgrindPublisherConfig.failThresholdInvalidReadWrite}" />
 	          </td>
 	          <td>
-	            <f:textbox name="valgrind.unstableThresholdInvalidReadWrite" value="${instance.valgrindPublisherConfig.unstableThresholdInvalidReadWrite}" />
+	            <f:textbox name="helgrind.unstableThresholdInvalidReadWrite" value="${instance.valgrindPublisherConfig.unstableThresholdInvalidReadWrite}" />
 	          </td>
 	        </tr>	        
 	      </tbody>
@@ -44,10 +44,10 @@
 	        <tr>
 	          <td style="vertical-align:middle">Leak (definitely lost)</td>
 	          <td>
-	            <f:textbox name="valgrind.failThresholdDefinitelyLost" value="${instance.valgrindPublisherConfig.failThresholdDefinitelyLost}" />
+	            <f:textbox name="helgrind.failThresholdDefinitelyLost" value="${instance.valgrindPublisherConfig.failThresholdDefinitelyLost}" />
 	          </td>
 	          <td>
-	            <f:textbox name="valgrind.unstableThresholdDefinitelyLost" value="${instance.valgrindPublisherConfig.unstableThresholdDefinitelyLost}" />
+	            <f:textbox name="helgrind.unstableThresholdDefinitelyLost" value="${instance.valgrindPublisherConfig.unstableThresholdDefinitelyLost}" />
 	          </td>
 	        </tr>	        
 	      </tbody>
@@ -56,10 +56,10 @@
 	        <tr>
 	          <td style="vertical-align:middle">Total</td>
 	          <td>
-	            <f:textbox name="valgrind.failThresholdTotal" value="${instance.valgrindPublisherConfig.failThresholdTotal}" />
+	            <f:textbox name="helgrind.failThresholdTotal" value="${instance.valgrindPublisherConfig.failThresholdTotal}" />
 	          </td>
 	          <td>
-	            <f:textbox name="valgrind.unstableThresholdTotal" value="${instance.valgrindPublisherConfig.unstableThresholdTotal}" />
+	            <f:textbox name="helgrind.unstableThresholdTotal" value="${instance.valgrindPublisherConfig.unstableThresholdTotal}" />
 	          </td>
 	        </tr>	        
 	      </tbody>

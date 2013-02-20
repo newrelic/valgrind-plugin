@@ -1,4 +1,4 @@
-package org.jenkinsci.plugins.valgrind.graph;
+package org.jenkinsci.plugins.helgrind.graph;
 
 import java.awt.BasicStroke;
 import java.awt.Color;

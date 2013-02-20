@@ -6,10 +6,10 @@
     <version>1.424</version>
   </parent>
 
-  <artifactId>valgrind</artifactId>
+  <artifactId>helgrind</artifactId>
   <version>0.19-SNAPSHOT</version>
   <packaging>hpi</packaging>
-  <name>Jenkins Valgrind Plug-in</name>
+  <name>Jenkins Helgrind Plug-in</name>
   <url>http://wiki.jenkins-ci.org/display/JENKINS/Valgrind+Plugin</url>
   
 	<licenses>
@@ -24,6 +24,11 @@
       <id>eXistence</id>
       <name>Johannes Ohlemacher</name>
       <email>johannes.ohlemacher@googlemail.com</email>
+    </developer>
+    <developer>
+      <id>newrelic</id>
+      <name>Robert R. Henry</name>
+      <email>rrh@newrelic.com</email>
     </developer>
   </developers>  
   

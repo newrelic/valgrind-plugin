@@ -1,4 +1,4 @@
-package org.jenkinsci.plugins.valgrind.model;
+package org.jenkinsci.plugins.helgrind.model;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package org.jenkinsci.plugins.valgrind.call;
+package org.jenkinsci.plugins.helgrind.call;
 
 @SuppressWarnings("serial")
 public class ValgrindOptionNotApplicableException extends Exception

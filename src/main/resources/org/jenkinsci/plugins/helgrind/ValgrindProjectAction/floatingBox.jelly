@@ -2,7 +2,7 @@
     <j:if test="${from.isDisplayGraph()}">
 	<div align="right">
           <p/>
-		  <div class="test-trend-caption">Valgrind Trend</div>
+		  <div class="test-trend-caption">Helgrind Trend</div>
 		  <div>
 		        <a href="${from.urlName}/">		  
 		    		<img src="${from.urlName}/graph"/>

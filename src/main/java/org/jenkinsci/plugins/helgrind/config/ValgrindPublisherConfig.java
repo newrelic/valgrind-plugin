@@ -1,4 +1,4 @@
-package org.jenkinsci.plugins.valgrind.config;
+package org.jenkinsci.plugins.helgrind.config;
 
 import java.io.Serializable;
 
@@ -15,6 +15,9 @@ public class ValgrindPublisherConfig implements Serializable
 	private String unstableThresholdInvalidReadWrite;
 	private String unstableThresholdDefinitelyLost;
 	private String unstableThresholdTotal;	
+
+	private String raceThreshold;
+	private String raceThresholdTotal;	
 	
 	@DataBoundConstructor
 	public ValgrindPublisherConfig( String pattern, 
@@ -24,6 +27,9 @@ public class ValgrindPublisherConfig implements Serializable
 			String unstableThresholdInvalidReadWrite, 
 			String unstableThresholdDefinitelyLost, 
 			String unstableThresholdTotal)
+
+                        //String raceThreshold,
+                        //String raceThresholdTotal)
 	{
 		this.pattern = pattern.trim();
 		this.failThresholdInvalidReadWrite = failThresholdInvalidReadWrite.trim();
@@ -32,6 +38,11 @@ public class ValgrindPublisherConfig implements Serializable
 		this.unstableThresholdInvalidReadWrite = unstableThresholdInvalidReadWrite.trim();
 		this.unstableThresholdDefinitelyLost = unstableThresholdDefinitelyLost.trim();
 		this.unstableThresholdTotal = unstableThresholdTotal.trim();		
+
+		this.raceThreshold = "0";
+		this.raceThresholdTotal = "0";
+		//this.raceThreshold = raceThreshold.trim();		
+		//this.raceThresholdTotal = raceThresholdTotal.trim();		
 	}
 
 	public ValgrindPublisherConfig()
@@ -71,6 +82,16 @@ public class ValgrindPublisherConfig implements Serializable
 	public String getUnstableThresholdTotal()
 	{
 		return unstableThresholdTotal;
+	}
+
+	public String getRaceThreshold()
+	{
+		return raceThreshold;
+	}
+
+	public String getRaceThresholdTotal()
+	{
+		return raceThresholdTotal;
 	}
 
 }

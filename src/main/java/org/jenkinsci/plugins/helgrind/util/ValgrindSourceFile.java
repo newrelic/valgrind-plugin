@@ -1,4 +1,4 @@
-package org.jenkinsci.plugins.valgrind.util;
+package org.jenkinsci.plugins.helgrind.util;
 
 import hudson.model.AbstractBuild;
 
@@ -28,7 +28,7 @@ import de.java2html.options.JavaSourceConversionOptions;
  */
 public class ValgrindSourceFile 
 {
-	public static final String SOURCE_DIRECTORY = "valgrind-plugin/source-files";
+	public static final String SOURCE_DIRECTORY = "helgrind-plugin/source-files";
 	
 	private static final int GENERATED_HTML_SOURCE_HEADER_SIZE = 12;
 	private static final int GENERATED_HTML_SOURCE_FOOTER_SIZE = 9;

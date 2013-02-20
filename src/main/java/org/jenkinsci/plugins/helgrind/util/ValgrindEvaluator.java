@@ -1,12 +1,12 @@
-package org.jenkinsci.plugins.valgrind.util;
+package org.jenkinsci.plugins.helgrind.util;
 
 import hudson.EnvVars;
 import hudson.model.BuildListener;
 import hudson.model.Result;
 import hudson.model.AbstractBuild;
 
-import org.jenkinsci.plugins.valgrind.config.ValgrindPublisherConfig;
-import org.jenkinsci.plugins.valgrind.model.ValgrindReport;
+import org.jenkinsci.plugins.helgrind.config.ValgrindPublisherConfig;
+import org.jenkinsci.plugins.helgrind.model.ValgrindReport;
 
 
 public class ValgrindEvaluator

@@ -13,7 +13,7 @@
        
    <j:if test="${errorList != null}">
 	   <p><b>${errorListName}:</b>	
-	   ${errorListDesc} (<a href="${manualLink}" target="_blank">Valgrind Manual</a>)
+	   ${errorListDesc} (<a href="${manualLink}" target="_blank">Helgrind Manual</a>)
 	   
 	   <st:header name="Content-Type" value="text/html;charset=UTF-8" />
 	   <table class="pane sortable" id="files">

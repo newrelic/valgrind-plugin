@@ -1,4 +1,4 @@
-package org.jenkinsci.plugins.valgrind.util;
+package org.jenkinsci.plugins.helgrind.util;
 
 import hudson.FilePath;
 import hudson.model.BuildListener;
@@ -8,8 +8,8 @@ import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.jenkinsci.plugins.valgrind.model.ValgrindStacktrace;
-import org.jenkinsci.plugins.valgrind.model.ValgrindStacktraceFrame;
+import org.jenkinsci.plugins.helgrind.model.ValgrindStacktrace;
+import org.jenkinsci.plugins.helgrind.model.ValgrindStacktraceFrame;
 
 
 /**

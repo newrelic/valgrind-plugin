@@ -1,8 +1,8 @@
-package org.jenkinsci.plugins.valgrind;
+package org.jenkinsci.plugins.helgrind;
 
 import hudson.model.AbstractBuild;
 
-import org.jenkinsci.plugins.valgrind.model.ValgrindProcess;
+import org.jenkinsci.plugins.helgrind.model.ValgrindProcess;
 
 public class ValgrindProcessDetails
 {

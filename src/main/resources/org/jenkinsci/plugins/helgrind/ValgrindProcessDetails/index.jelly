@@ -12,11 +12,11 @@
 		<st:include it="${it.owner}" page="sidepanel.jelly" />
 		<j:set var="process" value="${it.process}"/>
 		<l:main-panel>
-			   <h1>Valgrind Process Details</h1>		   
+			   <h1>Helgrind Process Details</h1>		   
 	        
 	        
 		    	<h2>
-		    	<img height="16" style="margin: 2px;" alt="" width="16" src="/plugin/valgrind/icons/process-64.png"/>		    	
+		    	<img height="16" style="margin: 2px;" alt="" width="16" src="/plugin/helgrind/icons/process-64.png"/>		    	
 		    	${process.executable} (process ${process.pid})
 		    	</h2>
 
@@ -51,55 +51,58 @@
 			    
 			    <j:set var="errorCount" value="${process.errorList.uninitializedValueErrorCount}"/>
 			    <j:set var="errorName" value="Uninitialized value errors"/>
-				<st:include page="/org/jenkinsci/plugins/valgrind/ValgrindResult/errorcountrow.jelly"/>
+				<st:include page="/org/jenkinsci/plugins/helgrind/ValgrindResult/errorcountrow.jelly"/>
 			    
 			    <j:set var="errorCount" value="${process.errorList.uninitializedConditionErrorCount}"/>
 			    <j:set var="errorName" value="Uninitialized condition errors"/>
-				<st:include page="/org/jenkinsci/plugins/valgrind/ValgrindResult/errorcountrow.jelly"/>
+				<st:include page="/org/jenkinsci/plugins/helgrind/ValgrindResult/errorcountrow.jelly"/>
 				
 			    <j:set var="errorCount" value="${process.errorList.invalidWriteErrorCount}"/>
 			    <j:set var="errorName" value="Invalid write errors"/>
-				<st:include page="/org/jenkinsci/plugins/valgrind/ValgrindResult/errorcountrow.jelly"/>					
+				<st:include page="/org/jenkinsci/plugins/helgrind/ValgrindResult/errorcountrow.jelly"/>					
 
 			    <j:set var="errorCount" value="${process.errorList.invalidReadErrorCount}"/>
 			    <j:set var="errorName" value="Invalid read errors"/>
-				<st:include page="/org/jenkinsci/plugins/valgrind/ValgrindResult/errorcountrow.jelly"/>
+				<st:include page="/org/jenkinsci/plugins/helgrind/ValgrindResult/errorcountrow.jelly"/>
 
 			    <j:set var="errorCount" value="${process.errorList.overlapErrorCount}"/>
 			    <j:set var="errorName" value="Overlap errors"/>
-				<st:include page="/org/jenkinsci/plugins/valgrind/ValgrindResult/errorcountrow.jelly"/>
+				<st:include page="/org/jenkinsci/plugins/helgrind/ValgrindResult/errorcountrow.jelly"/>
 				
 			    <j:set var="errorCount" value="${process.errorList.syscallParamErrorCount}"/>
 			    <j:set var="errorName" value="Syscall param errors"/>
-				<st:include page="/org/jenkinsci/plugins/valgrind/ValgrindResult/errorcountrow.jelly"/>					
+				<st:include page="/org/jenkinsci/plugins/helgrind/ValgrindResult/errorcountrow.jelly"/>					
 
 			    <j:set var="errorCount" value="${process.errorList.invalidFreeErrorCount}"/>
 			    <j:set var="errorName" value="Invalid free errors"/>
-				<st:include page="/org/jenkinsci/plugins/valgrind/ValgrindResult/errorcountrow.jelly"/>
+				<st:include page="/org/jenkinsci/plugins/helgrind/ValgrindResult/errorcountrow.jelly"/>
 
 			    <j:set var="errorCount" value="${process.errorList.mismatchedFreeErrorCount}"/>
 			    <j:set var="errorName" value="Mismatched free errors"/>
-				<st:include page="/org/jenkinsci/plugins/valgrind/ValgrindResult/errorcountrow.jelly"/>
+				<st:include page="/org/jenkinsci/plugins/helgrind/ValgrindResult/errorcountrow.jelly"/>
 				
 			    <j:set var="errorCount" value="${process.errorList.leakDefinitelyLostErrorCount}"/>
 			    <j:set var="errorName" value="Memory leak errors (definitely lost)"/>
 			    <j:set var="errorBytes" value="${process.errorList.definitelyLeakedBytes}"/>
-				<st:include page="/org/jenkinsci/plugins/valgrind/ValgrindResult/errorcountrow.jelly"/>
+				<st:include page="/org/jenkinsci/plugins/helgrind/ValgrindResult/errorcountrow.jelly"/>
 				
 			    <j:set var="errorCount" value="${process.errorList.leakIndirectlyLostErrorCount}"/>
 			    <j:set var="errorName" value="Memory leak errors (indirectly lost)"/>
 			    <j:set var="errorBytes" value="${process.errorList.possiblyLeakedBytes}"/>
-				<st:include page="/org/jenkinsci/plugins/valgrind/ValgrindResult/errorcountrow.jelly"/>
+				<st:include page="/org/jenkinsci/plugins/helgrind/ValgrindResult/errorcountrow.jelly"/>
 				
 			    <j:set var="errorCount" value="${process.errorList.leakPossiblyLostErrorCount}"/>
 			    <j:set var="errorName" value="Memory leak errors (possibly lost)"/>
 			    <j:set var="errorBytes" value="null"/>
-				<st:include page="/org/jenkinsci/plugins/valgrind/ValgrindResult/errorcountrow.jelly"/>
+				<st:include page="/org/jenkinsci/plugins/helgrind/ValgrindResult/errorcountrow.jelly"/>
 				
 			    <j:set var="errorCount" value="${process.errorList.leakStillReachableErrorCount}"/>
 			    <j:set var="errorName" value="Memory leak errors (still reachable)"/>
 			    <j:set var="errorBytes" value="null"/>
-				<st:include page="/org/jenkinsci/plugins/valgrind/ValgrindResult/errorcountrow.jelly"/>																				
+				<st:include page="/org/jenkinsci/plugins/helgrind/ValgrindResult/errorcountrow.jelly"/>																				
+			    <j:set var="errorCount" value="${process.errorList.raceErrorCount}"/>
+			    <j:set var="errorName" value="data races"/>
+				<st:include page="/org/jenkinsci/plugins/helgrind/ValgrindResult/errorcountrow.jelly"/>
 
 			    <tr>
 			      <td class="pane-header" style="width:2em" align="right">total</td>				      
@@ -110,7 +113,7 @@
 			    </table>
 			    
 			    <j:set var="url_prefix" value="../"/>
-			    <st:include page="/org/jenkinsci/plugins/valgrind/ValgrindResult/errorlist.jelly"/>
+			    <st:include page="/org/jenkinsci/plugins/helgrind/ValgrindResult/errorlist.jelly"/>
 			   				   		  
 		</l:main-panel>
 	</l:layout>

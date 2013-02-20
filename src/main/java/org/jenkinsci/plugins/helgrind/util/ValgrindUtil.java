@@ -1,4 +1,4 @@
-package org.jenkinsci.plugins.valgrind.util;
+package org.jenkinsci.plugins.helgrind.util;
 
 import hudson.FilePath;
 

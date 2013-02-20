@@ -1,8 +1,8 @@
-package org.jenkinsci.plugins.valgrind.model;
+package org.jenkinsci.plugins.helgrind.model;
 
 import java.io.Serializable;
 
-import org.jenkinsci.plugins.valgrind.util.ValgrindUtil;
+import org.jenkinsci.plugins.helgrind.util.ValgrindUtil;
 
 
 public class ValgrindStacktraceFrame implements Serializable

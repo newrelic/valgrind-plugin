@@ -1,4 +1,4 @@
-package org.jenkinsci.plugins.valgrind.model;
+package org.jenkinsci.plugins.helgrind.model;
 
 public enum ValgrindErrorKind
 {
@@ -14,4 +14,5 @@ public enum ValgrindErrorKind
 	SyscallParam,
 	InvalidFree,
 	MismatchedFree,
+        Race,  // rrh was here for helgrind
 }

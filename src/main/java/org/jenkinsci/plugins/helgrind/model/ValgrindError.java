@@ -1,12 +1,12 @@
-package org.jenkinsci.plugins.valgrind.model;
+package org.jenkinsci.plugins.helgrind.model;
 
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jenkinsci.plugins.valgrind.util.ValgrindSourceFile;
-import org.jenkinsci.plugins.valgrind.util.ValgrindUtil;
+import org.jenkinsci.plugins.helgrind.util.ValgrindSourceFile;
+import org.jenkinsci.plugins.helgrind.util.ValgrindUtil;
 
 
 /**
@@ -28,6 +28,9 @@ public class ValgrindError implements Serializable
 	private Integer					leakedBytes;
 	private Integer					leakedBlocks;
 	private List<ValgrindAuxiliary>	auxiliaryData;
+
+	private Integer					races;  // rrh helgrind
+	private List<ValgrindAuxiliary>	xauxiliaryData;  // rrh helgrind (info about other thread)
 
 	public String toString()
 	{
@@ -146,7 +149,7 @@ public class ValgrindError implements Serializable
 	{
 		this.leakedBlocks = leakedBlocks;
 	}
-	
+
 	public List<ValgrindAuxiliary> getAuxiliaryData()
 	{
 		return auxiliaryData;
@@ -156,7 +159,7 @@ public class ValgrindError implements Serializable
 	{
 		this.auxiliaryData = auxiliaryData;
 	}
-	
+
 	public void addAuxiliaryData( ValgrindAuxiliary auxiliaryData )
 	{
 		if ( this.auxiliaryData == null )
@@ -164,4 +167,33 @@ public class ValgrindError implements Serializable
 		
 		this.auxiliaryData.add(auxiliaryData);
 	}
+
+	public List<ValgrindAuxiliary> getXauxiliaryData()  // rrh helgrind
+	{
+		return xauxiliaryData;
+	}
+
+	public void setXauxiliaryData( List<ValgrindAuxiliary> xauxiliaryData )  // rrh helgrind
+	{
+		this.xauxiliaryData = xauxiliaryData;
+	}
+	
+	public void addXauxiliaryData( ValgrindAuxiliary xauxiliaryData )  // rrh helgrind
+	{
+		if ( this.xauxiliaryData == null )
+			this.xauxiliaryData = new ArrayList<ValgrindAuxiliary>();
+		
+		this.xauxiliaryData.add(xauxiliaryData);
+	}
+
+	public Integer getRaces() // rrh helgrind
+	{
+		return races;
+	}
+
+	public void setRaces( Integer races )  // rrh helgrind
+	{
+		this.races = races;
+	}
+
 }

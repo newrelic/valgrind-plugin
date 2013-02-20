@@ -1,6 +1,6 @@
-package org.jenkinsci.plugins.valgrind;
+package org.jenkinsci.plugins.helgrind;
 
-import org.jenkinsci.plugins.valgrind.util.AbstractValgrindProjectAction;
+import org.jenkinsci.plugins.helgrind.util.AbstractValgrindProjectAction;
 
 import hudson.model.Result;
 import hudson.model.AbstractBuild;
@@ -16,7 +16,7 @@ public class ValgrindProjectAction extends AbstractValgrindProjectAction
 
 	public String getDisplayName()
 	{
-		return "Valgrind Results";
+		return "Helgrind Results";
 	}
 
 	public String getUrlName()

@@ -1,4 +1,4 @@
-package org.jenkinsci.plugins.valgrind.model;
+package org.jenkinsci.plugins.helgrind.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.jenkinsci.plugins.valgrind.util.ValgrindErrorList;
+import org.jenkinsci.plugins.helgrind.util.ValgrindErrorList;
 
 public class ValgrindReport implements Serializable
 {

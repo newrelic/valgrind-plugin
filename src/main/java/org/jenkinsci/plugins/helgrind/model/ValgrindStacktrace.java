@@ -1,11 +1,11 @@
-package org.jenkinsci.plugins.valgrind.model;
+package org.jenkinsci.plugins.helgrind.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
-import org.jenkinsci.plugins.valgrind.util.ValgrindSourceFile;
+import org.jenkinsci.plugins.helgrind.util.ValgrindSourceFile;
 
 
 /**

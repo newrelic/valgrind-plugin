@@ -1,4 +1,4 @@
-package org.jenkinsci.plugins.valgrind.call;
+package org.jenkinsci.plugins.helgrind.call;
 
 import hudson.EnvVars;
 import hudson.FilePath;
@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jenkinsci.plugins.valgrind.util.ValgrindLogger;
+import org.jenkinsci.plugins.helgrind.util.ValgrindLogger;
 
 public class ValgrindCall
 {

@@ -1,4 +1,4 @@
-package org.jenkinsci.plugins.valgrind.parser;
+package org.jenkinsci.plugins.helgrind.parser;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -12,13 +12,13 @@ import java.util.List;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.easymock.EasyMock;
-import org.jenkinsci.plugins.valgrind.model.ValgrindAuxiliary;
-import org.jenkinsci.plugins.valgrind.model.ValgrindError;
-import org.jenkinsci.plugins.valgrind.model.ValgrindErrorKind;
-import org.jenkinsci.plugins.valgrind.model.ValgrindProcess;
-import org.jenkinsci.plugins.valgrind.model.ValgrindReport;
-import org.jenkinsci.plugins.valgrind.model.ValgrindStacktrace;
-import org.jenkinsci.plugins.valgrind.model.ValgrindStacktraceFrame;
+import org.jenkinsci.plugins.helgrind.model.ValgrindAuxiliary;
+import org.jenkinsci.plugins.helgrind.model.ValgrindError;
+import org.jenkinsci.plugins.helgrind.model.ValgrindErrorKind;
+import org.jenkinsci.plugins.helgrind.model.ValgrindProcess;
+import org.jenkinsci.plugins.helgrind.model.ValgrindReport;
+import org.jenkinsci.plugins.helgrind.model.ValgrindStacktrace;
+import org.jenkinsci.plugins.helgrind.model.ValgrindStacktraceFrame;
 import org.junit.Before;
 import org.junit.Test;
 import org.xml.sax.SAXException;
@@ -38,7 +38,7 @@ public class ValgrindSaxParserTest
 	@Test
 	public void simple() throws ParserConfigurationException, SAXException, IOException
 	{	
-		ValgrindReport report = parser.parse(new File("src/test/resources/org/jenkinsci/plugins/valgrind/parser/simple.xml"));
+		ValgrindReport report = parser.parse(new File("src/test/resources/org/jenkinsci/plugins/helgrind/parser/simple.xml"));
 		
 			
 		assertNotNull( report );
@@ -95,7 +95,7 @@ public class ValgrindSaxParserTest
 	@Test
 	public void auxiliary() throws ParserConfigurationException, SAXException, IOException
 	{	
-		ValgrindReport report = parser.parse(new File("src/test/resources/org/jenkinsci/plugins/valgrind/parser/aux-data.xml"));
+		ValgrindReport report = parser.parse(new File("src/test/resources/org/jenkinsci/plugins/helgrind/parser/aux-data.xml"));
 			
 		assertNotNull( report );
 		assertNotNull( report.getProcesses() );
@@ -162,7 +162,7 @@ public class ValgrindSaxParserTest
 	@Test
 	public void auxiliary_noStacktrace() throws ParserConfigurationException, SAXException, IOException
 	{	
-		ValgrindReport report = parser.parse(new File("src/test/resources/org/jenkinsci/plugins/valgrind/parser/aux-noStacktrace.xml"));
+		ValgrindReport report = parser.parse(new File("src/test/resources/org/jenkinsci/plugins/helgrind/parser/aux-noStacktrace.xml"));
 			
 		assertNotNull( report );
 		assertNotNull( report.getProcesses() );

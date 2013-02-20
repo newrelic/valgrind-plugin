@@ -1,4 +1,4 @@
-package org.jenkinsci.plugins.valgrind;
+package org.jenkinsci.plugins.helgrind;
 
 import hudson.EnvVars;
 import hudson.Extension;
@@ -19,15 +19,15 @@ import java.io.IOException;
 
 import net.sf.json.JSONObject;
 
-import org.jenkinsci.plugins.valgrind.config.ValgrindPublisherConfig;
-import org.jenkinsci.plugins.valgrind.model.ValgrindAuxiliary;
-import org.jenkinsci.plugins.valgrind.model.ValgrindError;
-import org.jenkinsci.plugins.valgrind.model.ValgrindProcess;
-import org.jenkinsci.plugins.valgrind.model.ValgrindReport;
-import org.jenkinsci.plugins.valgrind.parser.ValgrindParserResult;
-import org.jenkinsci.plugins.valgrind.util.ValgrindEvaluator;
-import org.jenkinsci.plugins.valgrind.util.ValgrindLogger;
-import org.jenkinsci.plugins.valgrind.util.ValgrindSourceGrabber;
+import org.jenkinsci.plugins.helgrind.config.ValgrindPublisherConfig;
+import org.jenkinsci.plugins.helgrind.model.ValgrindAuxiliary;
+import org.jenkinsci.plugins.helgrind.model.ValgrindError;
+import org.jenkinsci.plugins.helgrind.model.ValgrindProcess;
+import org.jenkinsci.plugins.helgrind.model.ValgrindReport;
+import org.jenkinsci.plugins.helgrind.parser.ValgrindParserResult;
+import org.jenkinsci.plugins.helgrind.util.ValgrindEvaluator;
+import org.jenkinsci.plugins.helgrind.util.ValgrindLogger;
+import org.jenkinsci.plugins.helgrind.util.ValgrindSourceGrabber;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.StaplerRequest;
 
@@ -45,9 +45,13 @@ public class ValgrindPublisher extends Recorder
 			String failThresholdInvalidReadWrite, 
 			String failThresholdDefinitelyLost, 
 			String failThresholdTotal,
+
 			String unstableThresholdInvalidReadWrite, 
 			String unstableThresholdDefinitelyLost, 
 			String unstableThresholdTotal)
+
+                        //String raceThreshold,
+                        //String raceThresholdTotal)
 	{
 		valgrindPublisherConfig = new ValgrindPublisherConfig(
 				pattern, 
@@ -56,7 +60,9 @@ public class ValgrindPublisher extends Recorder
 				failThresholdTotal,
 				unstableThresholdInvalidReadWrite, 
 				unstableThresholdDefinitelyLost, 
-				unstableThresholdTotal );		
+				unstableThresholdTotal);
+                                //raceThreshold,
+                                //raceThresholdTotal);		
 	}	
 
 	@Override
@@ -90,13 +96,13 @@ public class ValgrindPublisher extends Recorder
 		
 		if ( valgrindPublisherConfig.getPattern() == null || valgrindPublisherConfig.getPattern().isEmpty() )
 		{
-			ValgrindLogger.log(listener, "ERROR: no pattern for valgrind xml files configured");
+			ValgrindLogger.log(listener, "ERROR: no pattern for helgrind xml files configured");
 			return false;
 		}
 		
 		EnvVars env = build.getEnvironment(null);
 
-		ValgrindLogger.log(listener, "Analysing valgrind results");		
+		ValgrindLogger.log(listener, "Analysing helgrind results");		
 
 		ValgrindParserResult parser = new ValgrindParserResult(listener, env.expand(valgrindPublisherConfig.getPattern()));
 		ValgrindReport valgrindReport;
@@ -106,7 +112,7 @@ public class ValgrindPublisher extends Recorder
 		
 		new ValgrindEvaluator(valgrindPublisherConfig, listener).evaluate(valgrindReport, build, env); 
 		
-		ValgrindLogger.log(listener, "Analysing valgrind results");	
+		ValgrindLogger.log(listener, "Analysing helgrind results");	
 		
 		ValgrindSourceGrabber sourceGrabber = new ValgrindSourceGrabber(listener,  build.getModuleRoot());
 		
@@ -153,7 +159,7 @@ public class ValgrindPublisher extends Recorder
 				valgrindPublisherConfig);
 		build.addAction(buildAction);
 
-		ValgrindLogger.log(listener, "Ending the valgrind analysis.");
+		ValgrindLogger.log(listener, "Ending the helgrind analysis.");
 
 		return true;
 	}
@@ -202,7 +208,7 @@ public class ValgrindPublisher extends Recorder
 		@Override
 		public String getDisplayName()
 		{
-			return "Publish Valgrind results";
+			return "Publish Helgrind results";
 		}
 
 		public int getLinesBefore()

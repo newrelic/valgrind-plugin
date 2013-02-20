@@ -1,8 +1,8 @@
-package org.jenkinsci.plugins.valgrind.util;
+package org.jenkinsci.plugins.helgrind.util;
 
 import java.io.IOException;
 
-import org.jenkinsci.plugins.valgrind.ValgrindBuildAction;
+import org.jenkinsci.plugins.helgrind.ValgrindBuildAction;
 import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.StaplerResponse;
 
@@ -28,7 +28,7 @@ public abstract class AbstractValgrindProjectAction extends Actionable implement
 
 	public String getIconFileName()
 	{
-		return "/plugin/valgrind/icons/valgrind-48.png";
+		return "/plugin/helgrind/icons/valgrind-48.png";
 	}
 
 	public String getSearchUrl()

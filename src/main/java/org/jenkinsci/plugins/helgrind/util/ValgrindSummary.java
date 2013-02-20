@@ -1,6 +1,6 @@
-package org.jenkinsci.plugins.valgrind.util;
+package org.jenkinsci.plugins.helgrind.util;
 
-import org.jenkinsci.plugins.valgrind.ValgrindResult;
+import org.jenkinsci.plugins.helgrind.ValgrindResult;
 
 public class ValgrindSummary
 {
@@ -30,8 +30,9 @@ public class ValgrindSummary
 			else
 				summary.append(Integer.toString(errorCount) + " errors, ");
 
-			summary.append(result.getReport().getErrorList().getDefinitelyLeakedBytes());
-			summary.append(" bytes definitely lost");
+                        // Helgrind doesn't check if bytes leak.
+			// summary.append(result.getReport().getErrorList().getDefinitelyLeakedBytes());
+			// summary.append(" bytes definitely lost");
 			
 			summary.append("</a>");
 		}

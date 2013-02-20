@@ -2,5 +2,5 @@
   This view is used to render the installed plugins page.
 -->
 <div>
-  Calls valgrind with your executables and collects information about memory leaks and errors.
+  Calls helgrind with your executables and collects information about data races.
 </div>

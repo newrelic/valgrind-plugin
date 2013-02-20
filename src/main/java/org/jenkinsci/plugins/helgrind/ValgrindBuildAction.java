@@ -1,4 +1,4 @@
-package org.jenkinsci.plugins.valgrind;
+package org.jenkinsci.plugins.helgrind;
 
 import hudson.model.HealthReport;
 import hudson.model.AbstractBuild;
@@ -9,10 +9,10 @@ import hudson.util.Graph;
 import java.io.IOException;
 import java.util.Calendar;
 
-import org.jenkinsci.plugins.valgrind.config.ValgrindPublisherConfig;
-import org.jenkinsci.plugins.valgrind.graph.ValgrindGraph;
-import org.jenkinsci.plugins.valgrind.model.ValgrindReport;
-import org.jenkinsci.plugins.valgrind.util.AbstractValgrindBuildAction;
+import org.jenkinsci.plugins.helgrind.config.ValgrindPublisherConfig;
+import org.jenkinsci.plugins.helgrind.graph.ValgrindGraph;
+import org.jenkinsci.plugins.helgrind.model.ValgrindReport;
+import org.jenkinsci.plugins.helgrind.util.AbstractValgrindBuildAction;
 import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.StaplerResponse;
 
@@ -64,12 +64,12 @@ public class ValgrindBuildAction extends AbstractValgrindBuildAction
 
 	public String getIconFileName()
 	{
-		return "/plugin/valgrind/icons/valgrind-48.png";
+		return "/plugin/helgrind/icons/valgrind-48.png";
 	}
 
 	public String getDisplayName()
 	{
-		return "Valgrind Result";
+		return "Helgrind Result";
 	}
 
 	public String getUrlName()
@@ -106,13 +106,15 @@ public class ValgrindBuildAction extends AbstractValgrindBuildAction
 			ChartUtil.NumberOnlyBuildLabel label = new ChartUtil.NumberOnlyBuildLabel(buildAction.owner);
 			ValgrindReport report = buildAction.getResult().getReport();
 
-			dsb.add(report.getErrorList().getInvalidReadErrorCount() + report.getErrorList().getInvalidWriteErrorCount(), "Invalid reads/writes", label);
-			dsb.add(report.getErrorList().getLeakDefinitelyLostErrorCount(), "Leaks (definitely lost)", label);
-			dsb.add(report.getErrorList().getLeakPossiblyLostErrorCount(), "Leaks (possibly lost)", label);
-			dsb.add(report.getErrorList().getUninitializedConditionErrorCount() + report.getErrorList().getUninitializedValueErrorCount(), "Uninitialized value/cond.", label);
-			dsb.add(report.getErrorList().getInvalidFreeErrorCount() + report.getErrorList().getMismatchedFreeErrorCount(), "Illegal/mismatched frees", label);
-			dsb.add(report.getErrorList().getOverlapErrorCount(), "Overlaps", label);
-			dsb.add(report.getErrorList().getSyscallParamErrorCount(), "Illegal system calls", label);
+			// dsb.add(report.getErrorList().getInvalidReadErrorCount() + report.getErrorList().getInvalidWriteErrorCount(), "Invalid reads/writes", label);
+			// dsb.add(report.getErrorList().getLeakDefinitelyLostErrorCount(), "Leaks (definitely lost)", label);
+			// dsb.add(report.getErrorList().getLeakPossiblyLostErrorCount(), "Leaks (possibly lost)", label);
+			// dsb.add(report.getErrorList().getUninitializedConditionErrorCount() + report.getErrorList().getUninitializedValueErrorCount(), "Uninitialized value/cond.", label);
+			// dsb.add(report.getErrorList().getInvalidFreeErrorCount() + report.getErrorList().getMismatchedFreeErrorCount(), "Illegal/mismatched frees", label);
+			// dsb.add(report.getErrorList().getOverlapErrorCount(), "Overlaps", label);
+			// dsb.add(report.getErrorList().getSyscallParamErrorCount(), "Illegal system calls", label);
+
+			dsb.add(report.getErrorList().getRaceErrorCount(), "helgrind data races", label);
 		}
 		return dsb;
 	}

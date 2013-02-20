@@ -1,4 +1,4 @@
-package org.jenkinsci.plugins.valgrind;
+package org.jenkinsci.plugins.helgrind;
 
 import hudson.model.AbstractBuild;
 
@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.Map;
 
-import org.jenkinsci.plugins.valgrind.config.ValgrindPublisherConfig;
-import org.jenkinsci.plugins.valgrind.model.ValgrindError;
-import org.jenkinsci.plugins.valgrind.model.ValgrindProcess;
-import org.jenkinsci.plugins.valgrind.model.ValgrindReport;
-import org.jenkinsci.plugins.valgrind.util.ValgrindSourceFile;
-import org.jenkinsci.plugins.valgrind.util.ValgrindSummary;
+import org.jenkinsci.plugins.helgrind.config.ValgrindPublisherConfig;
+import org.jenkinsci.plugins.helgrind.model.ValgrindError;
+import org.jenkinsci.plugins.helgrind.model.ValgrindProcess;
+import org.jenkinsci.plugins.helgrind.model.ValgrindReport;
+import org.jenkinsci.plugins.helgrind.util.ValgrindSourceFile;
+import org.jenkinsci.plugins.helgrind.util.ValgrindSummary;
 import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.StaplerResponse;
 

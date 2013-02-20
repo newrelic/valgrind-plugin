@@ -1,10 +1,11 @@
-package org.jenkinsci.plugins.valgrind.util;
+package org.jenkinsci.plugins.helgrind.util;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jenkinsci.plugins.valgrind.model.ValgrindError;
-import org.jenkinsci.plugins.valgrind.model.ValgrindErrorKind;
+import org.jenkinsci.plugins.helgrind.model.ValgrindError;
+import org.jenkinsci.plugins.helgrind.model.ValgrindErrorKind;
+import org.jenkinsci.plugins.helgrind.util.ValgrindLogger;
 
 public class ValgrindErrorList
 {
@@ -79,10 +80,22 @@ public class ValgrindErrorList
 	{		
 		return getErrorCountByKind(ValgrindErrorKind.InvalidRead);
 	}
-	
+
 	public List<ValgrindError> getInvalidReadErrors()
 	{
 		return getErrorsByKind( ValgrindErrorKind.InvalidRead );
+	}
+	
+	public int getRaceErrorCount()  // rrh helgrind
+	{		
+		return getErrorCountByKind(ValgrindErrorKind.Race);
+	}
+
+	public List<ValgrindError> getRaceErrors()  // rrh helgrind
+	{
+              List<ValgrindError> errors;
+              errors = getErrorsByKind( ValgrindErrorKind.Race );
+              return errors;
 	}
 
 	public int getInvalidWriteErrorCount()
@@ -243,4 +256,29 @@ public class ValgrindErrorList
 		
 		return bytes;
 	}
+
+	public int getRaces( ValgrindErrorKind kind, String executable )  // rrh helgrind
+        {
+		if ( errors == null )
+			return 0;
+		
+		int races = 0;
+		
+		for ( ValgrindError error : errors )
+		{
+			if ( error.getKind() != kind )
+				continue;
+			
+			if ( !error.getExecutable().equals(executable) )
+				continue;			
+			
+			if ( error.getLeakedBytes() == null )
+				continue;
+			
+			races += error.getRaces().intValue();
+		}
+		
+		return races;
+    }
+
 }

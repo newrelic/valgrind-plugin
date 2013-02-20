@@ -1,4 +1,4 @@
-package org.jenkinsci.plugins.valgrind;
+package org.jenkinsci.plugins.helgrind;
 
 import hudson.EnvVars;
 import hudson.Extension;
@@ -24,15 +24,15 @@ import javax.servlet.ServletException;
 import net.sf.json.JSONObject;
 
 import org.apache.tools.ant.types.Commandline;
-import org.jenkinsci.plugins.valgrind.call.ValgrindBooleanOption;
-import org.jenkinsci.plugins.valgrind.call.ValgrindCall;
-import org.jenkinsci.plugins.valgrind.call.ValgrindEnumOption;
-import org.jenkinsci.plugins.valgrind.call.ValgrindExecutable;
-import org.jenkinsci.plugins.valgrind.call.ValgrindStringOption;
-import org.jenkinsci.plugins.valgrind.call.ValgrindTrackOriginsOption;
-import org.jenkinsci.plugins.valgrind.call.ValgrindVersion;
-import org.jenkinsci.plugins.valgrind.util.ValgrindLogger;
-import org.jenkinsci.plugins.valgrind.util.ValgrindUtil;
+import org.jenkinsci.plugins.helgrind.call.ValgrindBooleanOption;
+import org.jenkinsci.plugins.helgrind.call.ValgrindCall;
+import org.jenkinsci.plugins.helgrind.call.ValgrindEnumOption;
+import org.jenkinsci.plugins.helgrind.call.ValgrindExecutable;
+import org.jenkinsci.plugins.helgrind.call.ValgrindStringOption;
+import org.jenkinsci.plugins.helgrind.call.ValgrindTrackOriginsOption;
+import org.jenkinsci.plugins.helgrind.call.ValgrindVersion;
+import org.jenkinsci.plugins.helgrind.util.ValgrindLogger;
+import org.jenkinsci.plugins.helgrind.util.ValgrindUtil;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.QueryParameter;
 import org.kohsuke.stapler.StaplerRequest;
@@ -340,7 +340,7 @@ public class ValgrindBuilder extends Builder
 
 		public String getDisplayName()
 		{
-			return "Run Valgrind";
+			return "Run Helgrind";
 		}
 
 		@Override
