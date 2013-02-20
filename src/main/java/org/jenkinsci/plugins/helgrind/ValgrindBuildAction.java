@@ -19,7 +19,7 @@ import org.kohsuke.stapler.StaplerResponse;
 
 public class ValgrindBuildAction extends AbstractValgrindBuildAction
 {
-	public static String URL_NAME = "valgrindResult";
+	public static String URL_NAME = "helgrindResult";
 	
 	private ValgrindResult result;
 	private ValgrindPublisherConfig config;

@@ -23,7 +23,7 @@ public class ValgrindSummary
 		} 
 		else
 		{
-			summary.append("<a href=\"valgrindResult\">");
+			summary.append("<a href=\"helgrindResult\">");
 
 			if (errorCount == 1)
 				summary.append("one error, ");
